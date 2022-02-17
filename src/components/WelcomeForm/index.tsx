@@ -47,10 +47,10 @@ function WelcomeForm() {
                             <TextField fullWidth label="Full Name" variant="outlined" onChange={fullNameChangeHandler} value={fullName} />
                         </div>
                         <div className='field'>
-                            <TextField fullWidth label="Email" variant="outlined"  onChange={emailChangeHandler} value={email} />
+                            <TextField fullWidth label="Email" variant="outlined"  onChange={emailChangeHandler} value={email} type="email" />
                         </div>
                         <div className='field'>
-                            <TextField fullWidth label="Password" variant="outlined" onChange={passwordChangeHandler} value={password} />
+                            <TextField fullWidth label="Password" variant="outlined" onChange={passwordChangeHandler} value={password} type="password" />
                         </div>
                         <div className='field'>
                             <Button variant="contained" fullWidth type="submit">Create an account</Button>
