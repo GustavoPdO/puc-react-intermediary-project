@@ -1,0 +1,36 @@
+.welcome {
+    max-width: 1236px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    width: 100%;
+    margin: 0px auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+
+    .container {
+        box-sizing: border-box;
+        display: flex;
+        flex-flow: row wrap;
+        margin-top: -32px;
+        width: calc(100% + 32px);
+        margin-left: -32px;
+        
+        .column {
+            padding-left: 32px;
+            padding-top: 32px;
+            flex-basis: 50%;
+            -webkit-box-flex: 0;
+            flex-grow: 0;
+            max-width: 50%;
+            box-sizing: border-box;
+            margin: 0px;
+            flex-direction: row;
+        }
+    }
+}

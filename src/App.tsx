@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.scss';
 import Header from './components/Header';
 import UserReview from './components/UserReview';
+import Welcome from './components/Welcome';
 import { useDarkMode } from './contexts/DarkModeContext';
 import { getReviewList } from './services/faker';
 import { UserReviewProps } from './Types';
@@ -18,7 +19,7 @@ function App() {
     <main >
       <Header />
       <div className={`container primary-bg __${colorMode}`}>
-
+        <Welcome />
       </div>
       <div className={`container secondary-bg __${colorMode}`}>
         <div className="review_list">
