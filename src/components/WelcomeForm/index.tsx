@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect, ChangeEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
 import "./WelcomeForm.scss"
 
 import { useDarkMode } from "../../contexts/DarkModeContext"
@@ -26,7 +26,7 @@ function WelcomeForm() {
         setPassword(e.currentTarget.value);
     };
     
-    const submitHandler = (e: React.FormEvent<HTMLInputElement>) => {
+    const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const user = {
@@ -34,23 +34,23 @@ function WelcomeForm() {
             email,
             password
         };
-
-        console.log(user);
+        
+        localStorage.setItem('landing_page.user', JSON.stringify(user));
     };
 
     return (
         <div className='box'>
             <div className={`register __${colorMode}`}>
-                <form>
+                <form onSubmit={submitHandler}>
                     <div className='form'>
                         <div className='field'>
-                            <TextField fullWidth label="Full Name" variant="outlined" onChange={fullNameChangeHandler} value={fullName} />
+                            <TextField fullWidth label="Full Name" variant="outlined" onChange={fullNameChangeHandler} value={fullName} required/>
                         </div>
                         <div className='field'>
-                            <TextField fullWidth label="Email" variant="outlined"  onChange={emailChangeHandler} value={email} type="email" />
+                            <TextField fullWidth label="Email" variant="outlined"  onChange={emailChangeHandler} value={email} type="email" required/>
                         </div>
                         <div className='field'>
-                            <TextField fullWidth label="Password" variant="outlined" onChange={passwordChangeHandler} value={password} type="password" />
+                            <TextField fullWidth label="Password" variant="outlined" onChange={passwordChangeHandler} value={password} type="password" required/>
                         </div>
                         <div className='field'>
                             <Button variant="contained" fullWidth type="submit">Create an account</Button>
@@ -60,7 +60,7 @@ function WelcomeForm() {
                         </div>
                         <div className='info'>
                             <p className='info-register'>
-                                By creating you account you agree to our <a className="link" href="">Privacy Policy</a>, <a className="link" href="">Data Policy</a> and <a className="link" href="">Cookie Policy</a>.
+                                By creating you account you agree to our <span className="link">Privacy Policy</span>, <span className="link">Data Policy</span> and <span className="link">Cookie Policy</span>.
                             </p>
                         </div>
                     </div>
